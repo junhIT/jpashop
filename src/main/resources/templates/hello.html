@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Hello</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- 서버 사이드 렌더링을 탈 경우 th:text 내부 데이터가 나오고, html만 실행할 경우 html 결과값이 출력된다. -->
+	<p th:text="'안녕2하세요. ' + ${data}" > 안녕하세요. 손님</p>
+</body>
+</html>
