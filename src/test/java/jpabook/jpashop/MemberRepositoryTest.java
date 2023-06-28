@@ -9,6 +9,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import jpabook.jpashop.domain.Member;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class MemberRepositoryTest {
@@ -21,7 +23,7 @@ class MemberRepositoryTest {
 	public void testMember() throws Exception {
 		// given
 		Member member = new Member();
-		member.setUserName("memberA");
+		member.setName("memberA");
 		
 		// when
 		Long saveId = memberRepository.save(member);
@@ -29,13 +31,13 @@ class MemberRepositoryTest {
 		
 		// then
 		Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
-		Assertions.assertThat(findMember.getUserName()).isEqualTo(member.getUserName());
+		Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
 		/*
 		 * findMemeber == memeber -> true
-		 * °°Àº ¿µ¼Ó¼º Context ¾È¿¡¼­ ID°ª(½Äº°ÀÚ)ÀÌ °°À¸¸é °°Àº Entity·Î ½Äº°ÇÔ.
-		 * 1Â÷ Cache¿¡ ÀÖ´Â Ç×¸ñ¿¡¼­ °¡Á®¿À±â ¶§¹®¿¡ SelectQueryÁ¶Â÷ ½ÇÇàµÇÁö ¾ÊÀ½.
+		 * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¼ï¿½ Context ï¿½È¿ï¿½ï¿½ï¿½ IDï¿½ï¿½(ï¿½Äºï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Entityï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½.
+		 * 1ï¿½ï¿½ Cacheï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½×¸ñ¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SelectQueryï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		 */
-		Assertions.assertThat(findMember).isEqualTo(member);	//JPA ¿£Æ¼Æ¼ µ¿ÀÏ¼º º¸Àå
+		Assertions.assertThat(findMember).isEqualTo(member);	//JPA ï¿½ï¿½Æ¼Æ¼ ï¿½ï¿½ï¿½Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 	}
 
